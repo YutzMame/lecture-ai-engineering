@@ -116,7 +116,9 @@ def test_model_accuracy(train_model):
     # 予測と精度計算
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
-
+    
+    print(f"テスト精度: {accuracy:.4f}")
+    
     # Titanicデータセットでは0.75以上の精度が一般的に良いとされる
     assert accuracy >= 0.75, f"モデルの精度が低すぎます: {accuracy}"
 
@@ -180,6 +182,8 @@ def test_model_performance_against_baseline(train_model):
     # 予測と精度計算
     y_pred = model.predict(X_test)
     current_accuracy = accuracy_score(y_test, y_pred)
+    
+    print(f"現在のモデルの精度({current_accuracy:.4f})")
 
     # 環境変数からベースライン精度を取得
     baseline_accuracy_str = os.environ.get("BASELINE_ACCURACY")
@@ -193,4 +197,4 @@ def test_model_performance_against_baseline(train_model):
     assert (
         current_accuracy >= baseline_accuracy
     ), f"現在のモデルの精度({current_accuracy:.4f})がベースライン({baseline_accuracy:.4f})を下回っています"
-    print(f"現在のモデルの精度({current_accuracy:.4f})")
+    
