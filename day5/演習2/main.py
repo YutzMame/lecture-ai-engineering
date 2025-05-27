@@ -15,7 +15,7 @@ class DataLoader:
     """データロードを行うクラス"""
 
     @staticmethod
-    def load_titanic_data(path=None):
+    def load_titanic_data(path='/Users/yutsudoryo/Documents/AIE/lecture-ai-engineering/day5/演習2/data/Titanic.csv'):
         """Titanicデータセットを読み込む"""
         if path:
             return pd.read_csv(path)
@@ -285,3 +285,6 @@ if __name__ == "__main__":
     # ベースラインとの比較
     baseline_ok = ModelTester.compare_with_baseline(metrics)
     print(f"ベースライン比較: {'合格' if baseline_ok else '不合格'}")
+
+ 
+        
